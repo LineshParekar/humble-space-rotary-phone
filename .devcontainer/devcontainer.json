@@ -3,7 +3,7 @@
 {
 	"name": "Java",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/java:0-17",
+	"image": "mcr.microsoft.com/devcontainers/java:1-17-bullseye",
 
 	"features": {
 		"ghcr.io/devcontainers/features/java:1": {
@@ -11,16 +11,23 @@
 			"installMaven": "true",
 			"mavenVersion": "3.8.6",
 			"installGradle": "false"
+		},
+		"ghcr.io/devcontainers-contrib/features/ant-sdkman:2": {
+			"version": "latest",
+			"jdkVersion": "17",
+			"jdkDistro": "ms"
+			
 		}
 	},
-
+	"postCreateCommand": "echo \"this content added from postCreateCommand\" > test.txt  ",
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.
 		"vscode": {
 			"settings": {},
 			"extensions": [
-				"streetsidesoftware.code-spell-checker"
+				"streetsidesoftware.code-spell-checker",
+				"vscjava.vscode-java-pack"
 			]
 		}
 	}
